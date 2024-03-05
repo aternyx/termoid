@@ -25,7 +25,7 @@ import org.kde.plasma.plasmoid
 import org.kde.plasma.core as PlasmaCore
 import org.kde.plasma.components as PlasmaComponents3
 
-import QMLTermWidget 1.0
+import QMLTermWidget
 
 
 import "../code/utils.js" as Utils
