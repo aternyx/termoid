@@ -3,8 +3,6 @@
 Terminal in a plasmoid.  
 Run your favourite shell or terminal applications like nethogs, htop, colortail etc. on your desktop as a widget/plasmoid.
 
-[View on KDE Store](https://store.kde.org/p/1169451/)
-
 # Features
 * Terminal :)
 * Working keyboard and mouse input
@@ -29,7 +27,7 @@ Build step: `qmake && make`
 
 ## Arch Distros 
 
-[`qmltermwidget` Package](https://www.archlinux.org/packages/community/x86_64/qmltermwidget/)  
+[`qmltermwidget` Package](https://www.archlinux.org/packages/community/x86_64/qmltermwidget/) (removed)
 
 Install version 0.1.0 using 
 ```
@@ -71,10 +69,10 @@ sudo apt-get install cool-retro-term
 [Store link](https://store.kde.org/p/1169451/)
 
 ## Build it Yourself
-* [Download the source](https://github.com/koldbyte/termoid/archive/master.zip)
+* [Download the source](https://github.com/aternyx/termoid/archive/master.zip)
 
 ```
-git clone https://github.com/koldbyte/termoid.git termoid
+git clone https://github.com/aternyx/termoid.git termoid
 cd termoid
 sh ./install
 ```
@@ -86,7 +84,7 @@ Note:
 Add the Termoid widget from "Add widgets" on your desktop
 
 * The `build`/`run` commands require `kreadconfig5`.
-* Do *not* run the `install`/`reinstall` scripts with `sudo` or the plasmoid will be placed in `/usr/share/` instead of your home directory.
+* Do *not* run the `install`/`reinstall` scripts with `sudo` unless if you want the plasmoid to be placed in `/usr/share/` instead of your home directory.
 
 ## Locations
 
