@@ -1,0 +1,20 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "aterny@shuriken.pm",
+                "Name": "aterny"
+            }
+        ],
+        "Category": "Utilities",
+        "Description": "Terminal in a plasmoid",
+        "Icon": "utilities-terminal",
+        "Id": "com.aterny.kde.termoid",
+        "Name": "Termoid",
+        "Version": "0.5",
+        "Website": "https://github.com/aternyx/termoid"
+    },
+    "X-Plasma-API": "declarativeappletscript",
+    "KPackageStructure": "Plasma/Applet",
+    "X-Plasma-API-Minimum-Version": "6.0"
+}

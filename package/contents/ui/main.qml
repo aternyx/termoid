@@ -17,30 +17,30 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-import QtQuick 2.0
-import QtQuick.Layouts 1.1
-import QtQuick.Controls 1.2
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls
 
-import org.kde.plasma.plasmoid 2.0
-import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 2.0 as PlasmaComponents
+import org.kde.plasma.plasmoid
+import org.kde.plasma.core as PlasmaCore
+import org.kde.plasma.components as PlasmaComponents3
 
 import QMLTermWidget 1.0
 
 
 import "../code/utils.js" as Utils
 
-Item{
+PlasmoidItem{
     id: main
 
-    width: plasmoid.configuration.width
-    height: plasmoid.configuration.height
+    width: configuration.width
+    height: configuration.height
 
     Layout.minimumWidth: units.gridUnit * 10
     Layout.minimumHeight: units.gridUnit * 10
     
-    Plasmoid.preferredRepresentation: Plasmoid.fullRepresentation
-    Plasmoid.backgroundHints: plasmoid.configuration.showBackground ? PlasmaCore.Types.DefaultBackground : PlasmaCore.Types.NoBackground
+    preferredRepresentation: fullRepresentation
+    backgroundHints: configuration.showBackground ? PlasmaCore.Types.DefaultBackground : PlasmaCore.Types.NoBackground
     
     PlasmaCore.DataSource {
         id: executeSource
@@ -60,34 +60,34 @@ Item{
     }
 
     Component.onCompleted: {
-        plasmoid.setAction("openKonsole", i18n("Start Konsole"), "utilities-terminal");
+        setAction("openKonsole", i18n("Start Konsole"), "utilities-terminal");
     }
 
-    onWidthChanged: { plasmoid.configuration.width = main.width }
-    onHeightChanged: { plasmoid.configuration.height = main.height }
+    onWidthChanged: { configuration.width = main.width }
+    onHeightChanged: { configuration.height = main.height }
 
     QMLTermWidget {
         id: terminal
         anchors.fill: parent
         
-        font.family: plasmoid.configuration.fontfamily === "" ? "Monospace" : plasmoid.configuration.fontfamily || theme.defaultFont.family
-        font.pointSize: plasmoid.configuration.fontsize === "" ? "12" : plasmoid.configuration.fontsize
+        font.family: configuration.fontfamily === "" ? "Monospace" : configuration.fontfamily || theme.defaultFont.family
+        font.pointSize: configuration.fontsize === "" ? "12" : configuration.fontsize
         antialiasText:true
 
-        colorScheme: plasmoid.configuration.colorschemetext === null ? "Linux" : plasmoid.configuration.colorschemetext
-        opacity: plasmoid.configuration.opacity / 100
+        colorScheme: configuration.colorschemetext === null ? "Linux" : configuration.colorschemetext
+        opacity: configuration.opacity / 100
         fullCursorHeight: true
 
         session: QMLTermSession{
             id: mainsession
             initialWorkingDirectory: "$HOME"
-            //shellProgram: plasmoid.configuration.command === "" ? "$SHELL" : Utils.prog(plasmoid.configuration.command)
-            //shellProgramArgs: Utils.arg(plasmoid.configuration.command) || []
+            //shellProgram: configuration.command === "" ? "$SHELL" : Utils.prog(configuration.command)
+            //shellProgramArgs: Utils.arg(configuration.command) || []
         }
 
         Component.onCompleted: {
-            mainsession.setShellProgram(plasmoid.configuration.command === "" ? "$SHELL" : Utils.prog(plasmoid.configuration.command));
-            mainsession.setArgs(Utils.arg(plasmoid.configuration.command) || []);
+            mainsession.setShellProgram(configuration.command === "" ? "$SHELL" : Utils.prog(configuration.command));
+            mainsession.setArgs(Utils.arg(configuration.command) || []);
             console.log("Running with session shellProgram: " + JSON.stringify(mainsession))
             mainsession.startShellProgram();
             forceActiveFocus();

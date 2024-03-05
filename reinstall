@@ -3,4 +3,4 @@
 
 kpackagetool6 -t Plasma/Applet -u package
 killall plasmashell
-kstart6 plasmashell
+kstart plasmashell
